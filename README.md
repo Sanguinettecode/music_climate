@@ -15,9 +15,9 @@ Segue os pré requisitos para rodar o projeto em localhost
 * [YARN] (https://yarnpkg.com/pt-BR/docs/install)
 * [DOCKER] (https://docs.docker.com/toolbox/toolbox_install_windows/)
 * [MAILTRAP] (https://mailtrap.io)
-* [AMBIENTE DEV ANDROID] (https://docs.rocketseat.dev/ambiente-react-native/introducao) - para projeto em react-native
 
-O projeto meetapp mobile foi desenvolvido apenas para o ambiente ANDROID
+
+O projeto music climate.
 
 #### Instalação Docker:
 * [DOCKER TOOL BOX - WINDOWS](https://docs.docker.com/toolbox/toolbox_install_windows/) - No meu caso utilizei a toolbox para windows
@@ -29,12 +29,23 @@ docker run --name pg_music_climate -e POSTGRES_PASSWORD=mysecretpass -p 5432:543
 
 docker run --name redis_music_climate -p 6379:6379 -d -t redis:alpine
 
-docker run --name  mongo_music_climate -p 27017:27017 -p 28017:28017 -e AUTH=no -d  mongo:latest
+```
+Verifique se os containers estão funcionando corretamente:
+```
+docker ps -a
+
+/* caso os containers contendo os bancos de dados não estejam funcionando rode os seguintes comandos */
+
+docker start {nome/id do container}
 
 ```
+#### Serviço de email para teste
 
-Com os bancos de dados instalados,crie uma conta no
 * [MAILTRAP](https://mailtrap.io) - para envio de emails
+
+Para configurar o mailtrap.io, acesse sua conta e vá para a tela de configuração.
+Lá você encontrará as credenciais necessárias para que o serviço funcione corretamente
+
 
 Antes de iniciar o serviço, crie um arquivo .env com as configurações necessárias de Bancos de dados, emails, e outras variáveis de ambiente necessárias
 
@@ -43,64 +54,32 @@ Antes de iniciar o serviço, crie um arquivo .env com as configurações necess�
 
 Passo a passo para rodar o projeto em localhost
 
-Clonar o projeto contendo todas as pastas - API, MEETAPP WEB e MEETAPP MOBILE
+Clonar o projeto
 
 ```
-git@github.com:Sanguinettecode/meetapps.git
+https://github.com/Sanguinettecode/music_climate.git
 ```
 
-para todos os projetos
-
+### dependencias
 ```
-cd final_api
-yarn
-```
+/* instalando as dependencias */
 
-e
-
-```
-cd meetapp_web
-yarn
-```
-
-e finalmente
-
-```
-cd meetapp_app
 yarn
 ```
 
 Com todos as dependências instaladas digite o comando adequado
 
 ```
-/*para o serviço final api*/
+/*iniciando o serviço*/
 
 yarn dev
+/*iniciando o serviço app*/
 
 yarn queue
+/*iniciando o seviço filas*/
+
 ```
 
 Respequitivamente para iniciar o serviço da api rest e o monitoramento das filas com Redis
-
-```
-/*para o projeto web*/
-
-yarn start
-```
-
-e
-
-```
-/*para o projeto mobile*/
-
-react-native run-android
-```
-
-
-## Imagens
-
-![Exemplo tela mobile](https://github.com/Sanguinettecode/meetapps/blob/master/presentation_images/meetapp_mobile.jpg)
-![Exemplo tela web](https://github.com/Sanguinettecode/meetapps/blob/master/presentation_images/meetapp_web.jpg)
-
 
 
