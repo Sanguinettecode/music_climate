@@ -2,8 +2,8 @@ import Spotify from '../../services/spotify';
 
 class TracksController {
   async index(req, res) {
-    const { trackId } = req.body;
-    const responseTracks = await Spotify.tracks(trackId);
+    const { playlistId } = req.params;
+    const responseTracks = await Spotify.tracks(playlistId);
 
     return res.json(responseTracks);
   }

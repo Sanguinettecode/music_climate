@@ -83,4 +83,5 @@ yarn queue
 
 Respequitivamente para iniciar o serviço da api rest e o monitoramento das filas com Redis
 
-
+Documentação
+https://documenter.getpostman.com/view/12268446/T1LFmVRz
