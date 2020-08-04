@@ -1,11 +1,12 @@
-# Meetapp
+# Music Climate
 
-Meetapp é um projeto desenvolvido com a stack Javascript Node, React, React-native que tem a proposta emular o ambiente de um aplicativo web e mobile para organização de Meetups, assim como a plataforma Meetup.
-Este foi desenvolvido com a finalidade de comprovar minha proficiencia em Javascript e suas plataformas e frameworks presentes na stack Node, ReactJs, React Native, Postgres e Redis, com a utilização do Docker para a disponibilização dos bancos de dados através de containers.
+Music Climate é uma api desenvolvida com Nodejs a partir do framework Express.
+Este foi desenvolvido com a finalidade de comprovar minha proficiencia em Javascript,ferramentas auxiliáres para desenvolvimento de apis rest completas e frameworks presentes na stack Node, Postgres e Redis.
+A utilização do Docker tem como objetivo a disponibilização dos bancos de dados através de containers totalmente desacoplados ao serviço.
 
 ## Getting Started
 
-Para fins de teste você deve ter instalado em sua máquina uma versão LTS ou superior do NodeJs e o Docker com as imagens do MySQL e Redis devidamente configuradas.
+Para fins de teste você deve ter instalado em sua máquina uma versão LTS ou superior do NodeJs e o Docker com as imagens do Postgres e Redis devidamente configuradas.
 
 ### Pré Requisitos
 
@@ -25,7 +26,7 @@ O projeto music climate.
 #### Criar Container redis e prostgress
 
 ```
-docker run --name pg_music_climate -e POSTGRES_PASSWORD=mysecretpass -p 5432:5432 -d postgres:11
+docker run --name pg_music_climate -e POSTGRES_PASSWORD=mysecretpass POSTGRESQL_DATABASE=music_climate -p 5432:5432 -d postgres:11
 
 docker run --name redis_music_climate -p 6379:6379 -d -t redis:alpine
 
